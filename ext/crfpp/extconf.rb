@@ -1,3 +1,3 @@
 require 'mkmf'
 
-create_makefile('crfpp/crfpp')
+create_makefile('crfpp/native')
