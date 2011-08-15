@@ -15,14 +15,9 @@ Gem::Specification.new do |s|
   s.description = 'A Ruby extension to interface with CRF++, the Conditional Random Fields library written in C++. You need to install libcrfpp to use this gem.'
   s.license     = 'FreeBSD'
 
-  # s.add_runtime_dependency('citeproc', ['~>0.0'])
-  # s.add_runtime_dependency('execjs', ['>=1.2.4', '<1.3.0'])
-
   s.add_development_dependency('rake', '~>0.9')
   s.add_development_dependency('rake-compiler', '~>0.7')
   s.add_development_dependency('ZenTest', '~>4.6')
-  # s.add_development_dependency('rspec', ['>=2.6.0'])
-  # s.add_development_dependency('watchr', ['>=0.7'])
 
   s.files        = `git ls-files`.split("\n")
   s.test_files   = `git ls-files -- {test,spec,features}/*`.split("\n")

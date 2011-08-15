@@ -11,4 +11,6 @@ extern "C" void Init_native() {
 	rb_define_singleton_method(native, "learn",  VFUNC(learn), 0);
 	
 	Init_tagger(crfpp);
+	
+	rb_define_const(native, "VERSION", rb_str_new_cstr("0.54"));  
 }

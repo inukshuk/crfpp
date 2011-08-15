@@ -1,9 +1,11 @@
+lib = File.expand_path('../lib/', __FILE__)
+$:.unshift lib unless $:.include?(lib)
 
 require 'rake/clean'
 require 'rake/testtask'
 require 'rake/extensiontask'
 
-load './crfpp.gemspec'
+require 'crfpp/version'
 
 task :default => [:test]
 
@@ -14,7 +16,7 @@ Rake::ExtensionTask.new do |ext|
   ext.lib_dir = 'lib/crfpp'
   
   CLEAN.include("#{ext.lib_dir}/native.*")
-  CLEAN.include("#{ext.tmp_dir}")
+  CLEAN.include("#{ext.tmp_dir}")  
   
 end
 
@@ -23,3 +25,4 @@ Rake::TestTask.new :test => [:compile] do |test|
   test.test_files = Dir['test/**/test_*.rb']
   test.verbose = true
 end
+

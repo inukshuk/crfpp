@@ -3942,6 +3942,5 @@ SWIGEXPORT void Init_tagger(VALUE crfpp) {
   cTagger.mark = 0;
   cTagger.destroy = (void (*)(void *)) free_CRFPP_Tagger;
   cTagger.trackObjects = 0;
-  rb_define_const(mCRFPP, "VERSION", SWIG_FromCharPtr("0.52"));
 }
 
