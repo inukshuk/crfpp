@@ -4,9 +4,8 @@
 #include <ruby.h>
 #include <crfpp.h>
 
-#define VFUNC(f) ((VALUE (*)(ANYARGS)) f)
+#include <tagger.hpp>
 
-extern VALUE mCRFPP;
-extern VALUE mNative;
+#define VFUNC(f) ((VALUE (*)(ANYARGS)) f)
 
 #endif

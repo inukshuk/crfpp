@@ -12,8 +12,13 @@ LIB_DIRS = %W{
 
 dir_config('crfpp', HEADER_DIRS, LIB_DIRS)
 
+crfpp_config = with_config('crfpp-config', 'crfpp-config')
+use_crfpp_config = enable_config('crfpp-config')
 
 find_header('crfpp.h') || abort('crfpp.h not found')
-find_library('crfpp', 'crfpp_xsize') || abort('library crfpp not found')
+
+have_library('crfpp') || abort('library crfpp not found')
+have_library('pthread')
+
 
 create_makefile('crfpp/native')
