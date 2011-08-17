@@ -1,4 +1,6 @@
 require 'test/unit'
 require 'crfpp'
 
-require 'tempfile'
+module CRFPP
+  FixturesRoot = File.expand_path('../fixtures', __FILE__)
+end

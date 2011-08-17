@@ -3,12 +3,10 @@ require 'helper'
 module CRFPP
   class TestNative < Test::Unit::TestCase
     
-    FIXTURES_ROOT = File.expand_path('../../fixtures', __FILE__)
-    
     def test_create_a_new_model_file_through_training
       model = Tempfile.new('model')
-      assert Native.learn("#{FIXTURES_ROOT}/template #{FIXTURES_ROOT}/train.data #{model.path}")
-      assert model.length > 0
+      assert Native.learn("#{FixturesRoot}/template #{FixturesRoot}/train.data #{model.path}"), 'Native.learn returned with error exit status'
+      assert model.length > 0, 'nothing was written to model file'
     ensure
       model.close
       model.unlink
