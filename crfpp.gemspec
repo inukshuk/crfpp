@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ['Sylvester Keil']
   s.email       = ['http://sylvester.keil.or.at']
-  s.homepage    = 'http://inukshuk.github.com/crfpp'
+  s.homepage    = 'https://github.com/inukshuk/crfpp'
   s.summary     = 'Conditional Random Fields for Ruby.'
   s.description = 'A Ruby extension to interface with CRF++, the Conditional Random Fields library written in C++. You need to install libcrfpp to use this gem.'
   s.license     = 'FreeBSD'
