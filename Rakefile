@@ -26,3 +26,4 @@ Rake::TestTask.new :test => [:compile] do |test|
   test.verbose = true
 end
 
+CLEAN.include('*.gem')

@@ -17,8 +17,14 @@ module CRFPP
     
     def test_parse_feature_strings
       assert_equal 'U:%x[42,23]/AB', Feature.parse('U:%x[42,23]/AB').to_s
+      assert_equal 'U101:%x[42,23]/AB', Feature.parse('U101:%x[42,23]/AB').to_s
     end
     
+    def test_identifier
+      assert_equal '01', Feature.new(nil,nil,1).identifier
+      assert_equal '02', Feature.new(nil,nil,1).identifier(2)      
+      assert_equal '002', Feature.new(nil,nil,1).identifier('002')
+    end
     
   end
   

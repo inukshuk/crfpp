@@ -40,5 +40,5 @@ extern "C" void Init_native() {
 	
 	Init_tagger(crfpp);
 	
-	rb_define_const(native, "VERSION", rb_str_new_cstr("0.54"));  
+	rb_define_const(native, "VERSION", rb_str_new2("0.54"));  
 }
