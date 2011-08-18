@@ -17,7 +17,7 @@ module CRFPP
     alias to_s data
     
     def inspect
-      "<Model #{path}">
+      "<Model #{path}>"
     end
     
     def save_to(filename)
