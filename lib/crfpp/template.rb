@@ -3,11 +3,12 @@ module CRFPP
     
     extend Forwardable
     
+    include Enumerable
     include Filelike
     
-    attr_reader :features
+    attr_reader :sentences
     
-    def_delegators :@features, :<<, :length
+    def_delegators :@sentences, :each, :[]
     
     def initialize(path = nil)
       @path = path
@@ -15,17 +16,43 @@ module CRFPP
     end
     
     def open
-      @features = read.lines.map { |line| Feature.parse(line) }      
+      clear
+      
+      read.lines.each do |line|
+        line.chomp!
+        if line.strip.empty?
+          new_sentence 
+        else
+          push Feature.parse(line)
+        end
+      end
+      
       self
     end
     
     def clear
-      @features = []
+      @sentences = [[]]
     end
     
     def to_s
+      return '' if empty?
+      
       i = -1
-      features.map { |f| f.is_a?(Feature) ? f.to_s(i += 1) : f.chomp }.join("\n")
+      map { |s| s.map { |f| f.respond_to?(:identified?) && !f.identified? ? f.to_s(i += 1) : f }.join("\n") }.zip([]).flatten.join("\n")
+    end
+
+    def push(feature)
+      @sentences.last << feature
+    end
+    
+    alias << push
+
+    def empty?
+      [@sentences].flatten(2).compact.empty?
+    end    
+    
+    def new_sentence
+      @sentences << []
     end
     
   end

@@ -14,7 +14,7 @@ module CRFPP
 
     def test_load_template_from_file
       path = "#{FixturesRoot}/template"
-      assert_equal Template.new(path).to_s.chomp, File.open(path).read.chomp
+      assert_equal File.open(path).read.chomp, Template.new(path).to_s.chomp
     end
     
     

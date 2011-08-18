@@ -24,6 +24,10 @@ module CRFPP
       [type.to_s.upcase, identifier(number), ':', content].compact.join
     end
     
+    def identified?
+      !id.nil?
+    end
+    
   end
   
 end
