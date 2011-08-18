@@ -14,16 +14,17 @@ module CRFPP
       self
     end
     
-    alias to_s data
-    
-    def inspect
-      "<Model #{path}>"
+    def save
+      save_to(path)
     end
     
-    def save_to(filename)
-      @path = filename
-      save
+    def save_to(file)
+      write(file, data? ? data : read)
     end
-        
+
+    def data?
+      data && !data.empty?
+    end
+    
   end
 end

@@ -8,9 +8,9 @@ module CRFPP
       @path ||= Tempfile.new('filelike').path
     end
 
-    def write
-      File.open(path, 'w:UTF-8') do |f|
-        f.write(to_s)
+    def write(file = path, content = to_s)
+      File.open(file, 'w:UTF-8') do |f|
+        f.write(content)
         f.close
       end
       self

@@ -24,10 +24,14 @@ static VALUE learn(VALUE klass, VALUE arguments) {
 	}
 	
 	// start training
-	result = crfpp_learn(argc, argv) >= 0 ? Qtrue : Qfalse;
+	result = crfpp_learn(argc, argv)
 	
 	// free allocated memory
 	free(tmp);
+	
+	if (result < 0) {
+		rb_raise(rb_eStandardError, "crfpp_learn failed");
+	}
 	
 	return result;
 }

@@ -10,9 +10,9 @@ module CRFPP
     include Enumerable
     include Filelike
     
-    attr_reader :tokens
+    attr_reader :sentences
 
-    def_delegators :@tokens, :length, :[], :each
+    def_delegators :@sentences, :length, :[], :each
     
     def initialize(path = nil)
       @path = path
@@ -20,19 +20,44 @@ module CRFPP
     end
     
     def open
-      @tokens = read.lines.map { |line| Token.parse(line) }
-      @tokens.compact!
+      clear
+      
+      read.lines.each do |line|
+        line.chomp!
+        if line.strip.empty?
+          new_sentence 
+        else
+          push Token.parse(line)
+        end
+      end
+      
       self
     end
     
     def clear
-      @tokens = []
+      @sentences = [[]]
       self
     end
-   
+    
     def to_s
-      @tokens.join("\n")
+      empty? ? '' : zip([]).flatten.join("\n")
+    end
+
+    def push(feature)
+      @sentences.last << feature
+      self
     end
     
+    alias << push
+
+    def empty?
+      [@sentences].flatten(2).compact.empty?
+    end
+    
+    def new_sentence
+      @sentences << []
+      self
+    end
+ 
   end
 end

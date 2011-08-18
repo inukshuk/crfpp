@@ -36,11 +36,12 @@ module CRFPP
     arguments << (template.respond_to?(:path) ? template.path : template)
     arguments << (data.respond_to?(:path) ? data.path : data)
     arguments << model.path
-    
-    success = Native.learn(arguments.join(' '))
-    raise NativeError, 'crfpp learn failed' unless success
+
+    Native.learn(arguments.join(' '))
     
     model
+  rescue => error
+    raise NativeError, error.message
   end
   
   alias train learn
