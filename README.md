@@ -8,16 +8,23 @@ Installation
 ------------
 
 You will need to install [CRF++](http://crfpp.sourceforge.net/) prior to
-installing the CRFPP gem; simply download and unpack and run the following
-commands:
+installing the CRFPP gem; simply download the sources, unpack them, and then
+execute the following commands:
 
-    $ cd <CRF++ source directory>
+    $ cd CRF++-0.54
     $ make
     $ [sudo] make install
     $ [sudo] gem install crfpp
 
+Alternatively, if you are using [homebrew](http://mxcl.github.com/homebrew/)
+on OS X you may prefer to:
 
+    $ brew install crf++
+    $ gem install crfpp
 
+NB: if you installed CRF++ yourself make sure to not install (or not to
+load) the Ruby extensions that are packaged with the sources as they may
+interfere with the crfpp gem.
 
 
 Credits
