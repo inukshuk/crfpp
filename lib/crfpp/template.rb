@@ -32,6 +32,7 @@ module CRFPP
     
     def clear
       @sentences = [[]]
+      self
     end
     
     def to_s
@@ -43,6 +44,7 @@ module CRFPP
 
     def push(feature)
       @sentences.last << feature
+      self
     end
     
     alias << push
@@ -53,6 +55,7 @@ module CRFPP
     
     def new_sentence
       @sentences << []
+      self
     end
     
   end

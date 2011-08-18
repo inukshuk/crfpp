@@ -3,9 +3,6 @@ module CRFPP
   
   # Creates a new Model based on a template and training data.
   #
-  # The data parameter can either be an array of strings or a filename. The
-  # possible options are:
-  #
   # :threads:   False or the number of threads to us (default is 2).
   #
   # :algorithm: L1 or L2 (default)
@@ -26,14 +23,7 @@ module CRFPP
   def learn(template, data, options = {})
     options = { :threads => 2, :algorithm => :L2, :cost => 1.0, :frequency => 1}.merge(options)
     
-    unless File.exists?(data)
-      data = save_data_to_tempfile([data].flatten)
-      temporary = true
-    end
-
-    template = Template.new(template) unless template.is_a?(Template)
-    model = Model.new
-    
+    model = Model.new    
     arguments = []
     
     # TODO check algorithm names
@@ -43,16 +33,14 @@ module CRFPP
     arguments << "--thread=#{options[:threads]}"
     arguments << "--freq=#{options[:frequency]}"
     
-    arguments << template.path
-    arguments << data
+    arguments << (template.respond_to?(:path) ? template.path : template)
+    arguments << (data.respond_to?(:path) ? data.path : data)
     arguments << model.path
     
     success = Native.learn(arguments.join(' '))
     raise NativeError, 'crfpp learn failed' unless success
     
     model
-  ensure
-    data.unlink if temporary
   end
   
   alias train learn

@@ -13,7 +13,10 @@ module CRFPP
         f.write(to_s)
         f.close
       end
+      self
     end
+    
+    alias save write
     
     def read
       f = File.open(path, 'r:UTF-8')
