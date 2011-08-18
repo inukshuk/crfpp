@@ -24,7 +24,7 @@ static VALUE learn(VALUE klass, VALUE arguments) {
 	}
 	
 	// start training
-	result = crfpp_learn(argc, argv)
+	result = crfpp_learn(argc, argv);
 	
 	// free allocated memory
 	free(tmp);
