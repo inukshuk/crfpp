@@ -8,7 +8,17 @@ Installation
 ------------
 
 You will need to install [CRF++](http://crfpp.sourceforge.net/) prior to
-installing the CRFPP gem; afterwards simply `gem install crfpp`.
+installing the CRFPP gem; simply download and unpack and run the following
+commands:
+
+    $ cd <CRF++ source directory>
+    $ make
+    $ [sudo] make install
+    $ [sudo] gem install crfpp
+
+
+
+
 
 Credits
 -------
