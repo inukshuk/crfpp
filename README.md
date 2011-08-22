@@ -19,8 +19,8 @@ execute the following commands:
 If you are using a Debian-based system, you may want to try the Ubuntu packages
 from [Ubunutu NLP Repository](http://cl.naist.jp/~eric-n/ubuntu-nlp/):
 
-   $ sudo apt-get install libcrf++
-   $ [sudo] gem install crfpp
+    $ sudo apt-get install libcrf++
+    $ [sudo] gem install crfpp
 
 Alternatively, if you are using [homebrew](http://mxcl.github.com/homebrew/)
 on OS X you may prefer to:
