@@ -3,11 +3,11 @@ ENV['RC_ARCHS'] = '' if RUBY_PLATFORM =~ /darwin/
 require 'mkmf'
 
 HEADER_DIRS = %W{
-  /usr/local/include #{Config::CONFIG['includedir']} /usr/include
+  /usr/local/include #{RbConfig::CONFIG['includedir']} /usr/include
 }
 
 LIB_DIRS = %W{
-  /usr/local/lib #{Config::CONFIG['libdir']} /usr/lib
+  /usr/local/lib #{RbConfig::CONFIG['libdir']} /usr/lib
 }
 
 dir_config('crfpp', HEADER_DIRS, LIB_DIRS)
