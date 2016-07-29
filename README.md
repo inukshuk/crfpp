@@ -1,13 +1,13 @@
 CRFPP
 =====
 
-CRFPP is a Ruby API for the [CRF++](http://crfpp.sourceforge.net/) library
+CRFPP is a Ruby API for the [CRF++](https://taku910.github.io/crfpp/) library
 for [Conditional Random Fields](http://en.wikipedia.org/wiki/Conditional_random_field).
 
 Installation
 ------------
 
-You will need to install [CRF++](http://crfpp.sourceforge.net/) prior to
+You will need to install [CRF++](https://taku910.github.io/crfpp/) prior to
 installing the CRFPP gem; simply download the sources, unpack them, and then
 execute the following commands:
 
